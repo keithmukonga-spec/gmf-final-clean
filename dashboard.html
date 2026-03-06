@@ -1,0 +1,59 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard | GMF</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/static/styles.css"></head><body>
+<header class="topbar"><div class="container nav-wrap"><div class="brand">Gig Market Farm</div><nav><a href="/">Home</a><a href="/auth">Auth</a><a href="/jobs">Jobs</a><a href="/marketplace">Marketplace</a><a href="/payments">Payments</a><a href="/blogs-page">Blogs</a><a href="/dashboard">Dashboard</a></nav><button class="btn btn-dark" id="logout-btn">Logout</button></div></header>
+<main class="container section">
+  <h2>Dashboard</h2>
+  <p id="me-box" class="muted">Not logged in</p><button class="btn btn-gold" id="quick-owner-login-btn">Login As Owner</button>
+  <div class="grid two" style="margin-top:10px;"><input id="dash-ref-link-output" readonly placeholder="Your referral link"><button class="btn btn-cyan" id="dash-copy-ref-link-btn">Copy Referral Link</button></div>
+  <div class="dashboard-shell">
+    <aside class="sidebar card">
+      <h3>Workspace</h3>
+      <button class="btn btn-dark side-btn active" data-panel="owner-panel">Owner Metrics</button>
+      <button class="btn btn-dark side-btn" data-panel="seller-panel">Seller Metrics</button>
+      <button class="btn btn-dark side-btn" data-panel="freelancer-panel">Freelancer Metrics</button>
+      <button class="btn btn-dark side-btn" data-panel="earnings-panel">Earnings Actions</button>
+      <button class="btn btn-dark side-btn" data-panel="owner-admin-panel" id="owner-admin-btn">Owner Payout Admin</button>
+      <p class="muted" id="dashboard-role-info">Role: Unknown</p>
+    </aside>
+
+    <section class="dashboard-content">
+      <div class="panel card active" id="owner-panel"><h3>Owner Metrics</h3><button class="btn btn-gold" id="owner-dashboard-btn">Load</button><button class="btn btn-dark" id="load-monetization-btn">Load Monetization Ideas</button><div id="owner-list" class="cards-list"></div><div id="monetization-list" class="cards-list"></div></div>
+      <div class="panel card" id="seller-panel"><h3>Seller Metrics</h3><button class="btn btn-cyan" id="seller-dashboard-btn">Load</button><div id="seller-list" class="cards-list"></div></div>
+      <div class="panel card" id="freelancer-panel"><h3>Freelancer Metrics</h3><button class="btn btn-dark" id="freelancer-dashboard-btn">Load</button><div id="freelancer-list" class="cards-list"></div></div>
+
+      <div class="panel card" id="earnings-panel">
+        <h3>My Earnings</h3>
+        <button class="btn btn-cyan" id="load-earnings-summary-btn">Load Earnings Summary</button>
+        <div id="earnings-summary-list" class="cards-list"></div>
+        <hr style="border-color:#2a2e45">
+        <h3>Withdrawals</h3>
+        <input id="withdrawal-amount" type="number" placeholder="Withdrawal amount">
+        <select id="withdrawal-method"><option value="mpesa">M-Pesa</option><option value="bank">Bank</option><option value="paypal">PayPal</option><option value="bitcoin">Bitcoin</option></select>
+        <input id="withdrawal-destination" placeholder="Phone/email/wallet/account">
+        <button class="btn btn-gold" id="request-withdrawal-btn">Request Withdrawal</button>
+        <button class="btn btn-dark" id="load-withdrawals-btn">My Withdrawals</button>
+        <div id="withdrawals-list" class="cards-list"></div>
+        <hr style="border-color:#2a2e45">
+        <h3>Working Hours</h3>
+        <input id="work-note" placeholder="Work note (optional)">
+        <button class="btn btn-cyan" id="start-work-btn">Start Work Session</button>
+        <button class="btn btn-dark" id="stop-work-btn">Stop Work Session</button>
+        <button class="btn btn-dark" id="load-work-btn">Load Work Sessions</button>
+        <div id="work-list" class="cards-list"></div>
+      </div>
+
+      <div class="panel card" id="owner-admin-panel">
+        <h3>Owner Withdrawal Approval</h3>
+        <p class="muted">Only owner can approve/reject pending withdrawals.</p>
+        <button class="btn btn-cyan" id="load-all-withdrawals-btn">Load All Withdrawals</button>
+        <div class="grid two">
+          <input id="admin-withdrawal-id" type="number" placeholder="Withdrawal ID">
+          <select id="admin-withdrawal-status"><option value="paid">Mark Paid</option><option value="rejected">Reject</option><option value="pending">Back to Pending</option></select>
+        </div>
+        <button class="btn btn-gold" id="update-withdrawal-status-btn">Update Status</button>
+        <div id="all-withdrawals-list" class="cards-list"></div>
+      </div>
+    </section>
+  </div>
+  <p id="status-box" class="notice">Ready.</p>
+</main>
+<script src="/static/app.js"></script></body></html>

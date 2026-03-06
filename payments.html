@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Payments | GMF</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/static/styles.css"></head><body>
+<header class="topbar"><div class="container nav-wrap"><div class="brand">Gig Market Farm</div><nav><a href="/">Home</a><a href="/auth">Auth</a><a href="/jobs">Jobs</a><a href="/marketplace">Marketplace</a><a href="/payments">Payments</a><a href="/blogs-page">Blogs</a><a href="/dashboard">Dashboard</a></nav><button class="btn btn-dark" id="logout-btn">Logout</button></div></header>
+<main class="container section">
+  <h2>Payments & Payout Destinations</h2>
+  <div class="grid two">
+    <div class="card">
+      <h3>Initiate Payment</h3>
+      <select id="pay-provider"><option value="mpesa">M-Pesa</option><option value="card">Card (Stripe)</option><option value="paypal">PayPal</option><option value="bitcoin">Bitcoin</option><option value="bank">Bank Transfer</option></select>
+      <input id="pay-amount" type="number" value="25" placeholder="Amount"><input id="pay-currency" value="USD" placeholder="Currency"><input id="pay-phone" placeholder="M-Pesa phone (2547...)" >
+      <button class="btn btn-gold" id="pay-btn">Initiate</button><button class="btn btn-dark" id="load-methods-btn">Payment Provider Status</button>
+      <div id="methods-list" class="cards-list"></div>
+    </div>
+
+    <div class="card">
+      <h3>Your Money Destination (Owner)</h3>
+      <input id="payout-bitcoin" placeholder="Bitcoin wallet address"><input id="payout-paypal" placeholder="PayPal email"><input id="payout-bank-name" placeholder="Bank name"><input id="payout-bank-account-name" placeholder="Bank account name"><input id="payout-bank-account-number" placeholder="Bank account number"><input id="payout-mpesa" placeholder="M-Pesa number">
+      <button class="btn btn-cyan" id="save-payout-btn">Save Payout Settings</button><button class="btn btn-dark" id="load-payout-btn">Load Current Settings</button>
+    </div>
+  </div>
+
+  <div class="grid two">
+    <div class="card"><h3>Latest Payment Response</h3><div id="payment-result" class="cards-list"></div></div>
+    <div class="card"><h3>Payment History</h3><button class="btn btn-dark" id="load-payments-btn">Load My Payments</button><div id="payments-list" class="cards-list"></div></div>
+  </div>
+
+  <div class="card">
+    <h3>Launch Readiness</h3>
+    <p class="muted">This checks if your live payment rails are configured and if owner payout destination is set.</p>
+    <button class="btn btn-gold" id="launch-readiness-btn">Run Launch Check</button>
+    <div id="launch-readiness-list" class="cards-list"></div>
+  </div>
+
+  <p id="status-box" class="notice">Ready.</p>
+</main>
+<script src="/static/app.js"></script></body></html>
